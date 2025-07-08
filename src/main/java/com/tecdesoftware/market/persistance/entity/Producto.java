@@ -5,21 +5,22 @@ import jakarta.persistence.*;
 @Entity
 @Table (name = "productos")
 public class Producto {
-
+//caaaambiiiioooos
     @Id //llave primaria
     //Hace el id autoincremental
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_products")
+    @Column(name = "id_producto")
     private Integer idProducto;
 
     private String nombre;
-    private String descripcion;
+    //private String descripcion;
+    @Column(name = "id_categoria", insertable = false, updatable = false)
     private Integer idCategoria;
 
-    @Column(name = "id_categoria")
+    @Column(name = "codigo_barras")
     private String codigoBarras;
 
-    @Column(name = "codigo_barras")
+    @Column(name = "precio_venta")
     private Double precioVenta;
 
     @Column(name = "cantidad_stock")
@@ -47,13 +48,13 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
+    /*public String getDescripcion() {
         return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
+    }*/
 
     public Integer getIdCategoria() {
         return idCategoria;

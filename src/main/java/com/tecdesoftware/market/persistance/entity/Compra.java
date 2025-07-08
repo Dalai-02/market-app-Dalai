@@ -33,11 +33,11 @@ public class Compra {
     @ManyToOne
     //No quiero que se modifique la entidad cliente, solo quiero relacionarla
     @JoinColumn (name= "id_cliente", insertable = false, updatable = false)
-    private Clientes clientes;
+    private Clientes cliente;
 
     //Relación con la entidad CompraProducto: Una compra con muchos productos
-    @OneToMany(mappedBy = "producto")
-    private List<CompraProducto> producto;
+    @OneToMany(mappedBy = "compra")
+    private List<CompraProducto> productos;
 
     public Integer getIdCompra() {
         return idCompra;
@@ -93,5 +93,21 @@ public class Compra {
 
     public void setEstado(Boolean estado) {
         this.estado = estado;
+    }
+
+    public Clientes getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Clientes cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<CompraProducto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<CompraProducto> productos) {
+        this.productos = productos;
     }
 }
