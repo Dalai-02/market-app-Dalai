@@ -36,7 +36,7 @@ public class Compra {
     private Clientes cliente;
 
     //Relación con la entidad CompraProducto: Una compra con muchos productos
-    @OneToMany(mappedBy = "compra")
+    @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL)
     private List<CompraProducto> productos;
 
     public Integer getIdCompra() {
