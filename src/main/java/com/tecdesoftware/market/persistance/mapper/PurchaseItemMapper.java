@@ -13,19 +13,19 @@ import org.mapstruct.factory.Mappers;
 public interface PurchaseItemMapper {
 
     @Mappings({
-            @Mapping(source = "id.idProdcuto", target = "productoId"),
+            @Mapping(source = "id.idProducto", target = "productId"),
             @Mapping(source = "cantidad", target = "quantity"),
             @Mapping(source = "estado", target = "active")
 
     })
 
-    PurchaseItemMapper toPurchaseItem (CompraProducto producto);
+    PurchaseItem toPurchaseItem (CompraProducto producto);
 
     @InheritConfiguration
     @Mappings({
-            @Mapping(target = "id.iCompra", ignore = true),
-            @Mapping(target = "comrpa", ignore = true),
-            @Mapping(target = "product", ignore = true)
+            @Mapping(target = "id.idCompra", ignore = true),
+            @Mapping(target = "compra", ignore = true),
+            @Mapping(target = "producto", ignore = true)
 
     })
     CompraProducto toCompraProducto (PurchaseItem Item);

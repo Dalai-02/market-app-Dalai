@@ -11,7 +11,7 @@ public class CompraProductoPK {
     private Integer idCompra;
 
     @Column(name = "id_producto")
-    private Integer idCategoria;
+    private Integer idProducto;
 
     public Integer getIdCompra() {
         return idCompra;
@@ -21,11 +21,11 @@ public class CompraProductoPK {
         this.idCompra = idCompra;
     }
 
-    public Integer getIdCategoria() {
-        return idCategoria;
+    public Integer getIdProducto() {
+        return idProducto;
     }
 
     public void setIdCategoria(Integer idCategoria) {
-        this.idCategoria = idCategoria;
+        this.idProducto = idProducto;
     }
 }

@@ -6,36 +6,33 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "Compras")
+@Table(name = "compras")
 public class Compra {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //Para que se genere automaticamente el id
-
-    @Column(name = "id_compras")
+    @Column(name = "id_compra")
     private Integer idCompra;
 
-    private String nombre;
-
     @Column(name = "id_cliente")
-    private Integer idCliente;
+    private String idCliente;  // Cambiar a String
 
+    @Column(name = "fecha")
     private LocalDateTime fechaCompra;
 
-    @Column( name = "medio_pago")
-    private Double medioPago;
+    @Column(name = "medio_pago")
+    private String medioPago;  // Cambiar a String (char(1))
 
-    private Integer comentario;
+    @Column(name = "comentario")
+    private String comentario; // Cambiar a String
 
-    private Boolean estado;
+    @Column(name = "estado")
+    private String estado;     // Cambiar a String (char(1))
 
-    //Relación con la entidad cliente: Muchas compras a un cliente
     @ManyToOne
-    //No quiero que se modifique la entidad cliente, solo quiero relacionarla
-    @JoinColumn (name= "id_cliente", insertable = false, updatable = false)
+    @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
     private Clientes cliente;
 
-    //Relación con la entidad CompraProducto: Una compra con muchos productos
     @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL)
     private List<CompraProducto> productos;
 
@@ -47,19 +44,11 @@ public class Compra {
         this.idCompra = idCompra;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Integer getIdCliente() {
+    public String getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(Integer idCliente) {
+    public void setIdCliente(String idCliente) {
         this.idCliente = idCliente;
     }
 
@@ -71,27 +60,27 @@ public class Compra {
         this.fechaCompra = fechaCompra;
     }
 
-    public Double getMedioPago() {
+    public String getMedioPago() {
         return medioPago;
     }
 
-    public void setMedioPago(Double medioPago) {
+    public void setMedioPago(String medioPago) {
         this.medioPago = medioPago;
     }
 
-    public Integer getComentario() {
+    public String getComentario() {
         return comentario;
     }
 
-    public void setComentario(Integer comentario) {
+    public void setComentario(String comentario) {
         this.comentario = comentario;
     }
 
-    public Boolean getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 

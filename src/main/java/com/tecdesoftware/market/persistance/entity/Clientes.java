@@ -15,6 +15,7 @@ public class Clientes {
 
     private String nombre;
 
+    @Column(name = "apellidos")
     private String apellido;
 
     private Long celular;
