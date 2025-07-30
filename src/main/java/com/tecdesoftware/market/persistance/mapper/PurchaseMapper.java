@@ -27,5 +27,7 @@ public interface PurchaseMapper {
 
     @InheritInverseConfiguration
     @Mapping(target = "cliente", ignore = true)
+    @Mapping(target = "idCompra", expression = "java(purchase.getPurchaseId() == 0 ? null : purchase.getPurchaseId())")
     Compra toCompra(Purchase purchase);
+
 }

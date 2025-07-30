@@ -30,6 +30,8 @@ public class Clientes {
     @OneToMany(mappedBy = "cliente" )
     private List<Compra> compra;
 
+    private String contrasena;
+
     public String getId() {
         return id;
     }
@@ -76,5 +78,13 @@ public class Clientes {
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 }
